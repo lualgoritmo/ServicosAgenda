@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.luciano.servicosagenda.R
+import android.widget.CalendarView
 import com.luciano.servicosagenda.databinding.FragmentCalendarBinding
 
-class CalendarFragment : Fragment() {
+class CalendarFragment : Fragment(), CalendarView.OnDateChangeListener {
 
     private lateinit var binding: FragmentCalendarBinding
 
@@ -18,5 +18,14 @@ class CalendarFragment : Fragment() {
     ): View? {
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.calendar.setOnDateChangeListener(this)
+    }
+
+    override fun onSelectedDayChange(view: CalendarView, year: Int, month: Int, dayOfMonth: Int) {
+       binding.testViewDate.text = "$dayOfMonth - $month - $year"
     }
 }
