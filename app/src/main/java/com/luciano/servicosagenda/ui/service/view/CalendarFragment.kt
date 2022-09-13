@@ -26,6 +26,6 @@ class CalendarFragment : Fragment(), CalendarView.OnDateChangeListener {
     }
 
     override fun onSelectedDayChange(view: CalendarView, year: Int, month: Int, dayOfMonth: Int) {
-       binding.testViewDate.text = "$dayOfMonth - $month - $year"
+       binding.testViewDate.text = "$dayOfMonth - ${month + 1} - $year"
     }
 }
