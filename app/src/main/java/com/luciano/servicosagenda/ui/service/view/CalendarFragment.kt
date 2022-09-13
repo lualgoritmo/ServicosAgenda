@@ -9,6 +9,7 @@ import com.luciano.servicosagenda.R
 import com.luciano.servicosagenda.databinding.FragmentCalendarBinding
 
 class CalendarFragment : Fragment() {
+
     private lateinit var binding: FragmentCalendarBinding
 
     override fun onCreateView(
